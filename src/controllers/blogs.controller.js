@@ -104,7 +104,9 @@ const getBlogById = asyncHandler(
 
 const updateBlog = asyncHandler(
     async (req,res)=>{
+        console.log("req body update ", req.body);
         const { id } = req.params;
+        console.log(id);
         if(
             !id
         )
@@ -114,16 +116,18 @@ const updateBlog = asyncHandler(
                 "id id required"
             )
         }
+
         const updatedBlog = await Blog.findByIdAndUpdate(
-            {_id:id},
+            id,
             {
                 ...req.body
             },
             {
-                new:true
+                new:true,
+                runValidators: true
             }
         )
-
+        
         if(
             !updatedBlog  
         )
