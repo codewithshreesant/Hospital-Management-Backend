@@ -9,6 +9,8 @@ import newsRoutes from './src/routes/news.route.js';
 import servicesRoutes from './src/routes/services.route.js';
 import userRoutes from './src/routes/users.route.js';
 import blogRoutes from './src/routes/blogs.route.js'
+import appointmentRoutes from './src/routes/appointment.route.js'
+import contactRoutes from './src/routes/contact.route.js'
 
 const app = express();
 dotenv.config();
@@ -40,3 +42,5 @@ app.use('/api/n', newsRoutes);
 app.use('/api/s', servicesRoutes);
 app.use('/api/u', userRoutes);
 app.use('/api/b', blogRoutes);
+app.use('/api/a', appointmentRoutes);
+app.use('/api/c', contactRoutes);

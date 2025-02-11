@@ -18,6 +18,15 @@ const doctorSchema = new Schema({
         type:String,
         unique:true,
         required:true
+    },
+    linkedin:{
+        type:String
+    },
+    facebook:{
+        type:String
+    },
+    instagram:{
+        type:String 
     }
 },
 {
@@ -26,4 +35,5 @@ const doctorSchema = new Schema({
 )
 
 export const Doctor = mongoose.model('Doctor', doctorSchema);
+
 

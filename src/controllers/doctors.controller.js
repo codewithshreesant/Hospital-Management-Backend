@@ -5,7 +5,7 @@ import { asyncHandler } from "../utils/asyncHandler.js";
 
 const createDoctor = asyncHandler(
     async (req,res)=>{
-        const {name, category, img, email} = req.body;
+        const {name, category, img, email, linkedin, instagram, facebook} = req.body;
 
         if(
             [name, category, img, email].some((field)=>{
@@ -31,7 +31,10 @@ const createDoctor = asyncHandler(
             name,
             email,
             category,
-            img
+            img,
+            linkedin:linkedin ? linkedin : '',
+            facebook:facebook ? facebook : '',
+            instagram:instagram ? instagram :''
         })
 
         const doctors = await newDoctor.save();
@@ -91,7 +94,7 @@ const getDoctorById = asyncHandler(
 
 const updateDoctor = asyncHandler(
     async (req,res)=>{
-        const {name, category, img, email} = req.body;
+        const {name, category, img, email, linkedin, facebook, instagram} = req.body;
 
         if(
             [name, category, img, email].some((field)=>{
@@ -111,7 +114,10 @@ const updateDoctor = asyncHandler(
                 name,
                 category,
                 img,
-                email
+                email,
+                linkedin: linkedin ? linkedin : '',
+                facebook: facebook ? facebook : '',
+                instagram: instagram ? instagram : ''
             },
             {new:true}
         )

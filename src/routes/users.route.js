@@ -19,7 +19,7 @@ router.post('/create-admin', async (req,res)=>{
             })
         )
         {
-            res.status(404).json({ error:"username and password is required ! " })
+            res.status(404).json({ error:"username and password is required ! " });
         }  
         const isExistedUser = await Admin.find({username});
         if(isExistedUser.length > 0)
